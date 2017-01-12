@@ -1,4 +1,4 @@
-package karcompany.com.imageexplorer;
+package com.karcompany.imageexplorer;
 
 import org.junit.Test;
 

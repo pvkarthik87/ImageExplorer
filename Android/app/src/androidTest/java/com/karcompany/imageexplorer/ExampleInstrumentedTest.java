@@ -1,4 +1,4 @@
-package karcompany.com.imageexplorer;
+package com.karcompany.imageexplorer;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
