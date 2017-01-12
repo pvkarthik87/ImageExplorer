@@ -1,0 +1,57 @@
+package com.karcompany.imageexplorer.views.fragments;
+
+/**
+ * Created by pvkarthik on 2017-01-12.
+ *
+ * BaseFragment from which other fragments extend to Simplify DI, view injections.
+ */
+
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.View;
+
+import com.karcompany.imageexplorer.di.HasComponent;
+
+import butterknife.ButterKnife;
+
+public class BaseFragment extends Fragment {
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        bindViews(view);
+    }
+
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+//        injectDependencies();
+    }
+
+    /**
+     * Gets a component for dependency injection by its type.
+     */
+    @SuppressWarnings("unchecked")
+    protected <C> C getComponent(Class<C> componentType) {
+        return componentType.cast(((HasComponent<C>) getActivity()).getComponent());
+    }
+
+    /**
+     * ButterKnife injection
+     * @param view
+     */
+    private void bindViews(View view) {
+        ButterKnife.bind(this, view);
+    }
+
+    private void unBindViews() {
+        ButterKnife.unbind(this);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unBindViews();
+    }
+}
