@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ImageExplorer</string>
+    <string name="search_title">Search Images</string>
+    <string name="ok">Ok</string>
+</resources>
