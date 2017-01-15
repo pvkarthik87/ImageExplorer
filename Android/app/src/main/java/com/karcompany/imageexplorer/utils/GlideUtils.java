@@ -1,16 +1,11 @@
 package com.karcompany.imageexplorer.utils;
 
-import android.graphics.Bitmap;
 import android.support.v4.app.Fragment;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.karcompany.imageexplorer.R;
 import com.karcompany.imageexplorer.logging.DefaultLogger;
 
@@ -20,6 +15,8 @@ import java.util.List;
 
 /**
  * Created by pvkarthik on 2017-01-12.
+ *
+ * Helper class which loads image from url to imageview.
  */
 public class GlideUtils {
 
@@ -37,25 +34,16 @@ public class GlideUtils {
 		mColourList = Collections.unmodifiableList(colourList);
 	}
 
-	public static void loadImageWithNoCache(final Fragment fragment, String url, final ImageView imageView) {
+	public static void loadImage(Fragment fragment, String url, ImageView gifView) {
 		if (TextUtils.isEmpty(url)) return;
 		Glide
 				.with(fragment)
 				.load(url)
 				.asBitmap()
 				.placeholder(getColorIndex())
-				.skipMemoryCache(true)
 				.error(getColorIndex())
-				.diskCacheStrategy(DiskCacheStrategy.NONE)
-				.centerCrop().into(new BitmapImageViewTarget(imageView) {
-					@Override
-					protected void setResource(Bitmap resource) {
-						RoundedBitmapDrawable circularBitmapDrawable =
-								RoundedBitmapDrawableFactory.create(fragment.getResources(), resource);
-						circularBitmapDrawable.setCircular(true);
-						imageView.setImageDrawable(circularBitmapDrawable);
-					}
-				});
+				.diskCacheStrategy(DiskCacheStrategy.SOURCE)
+				.into(gifView);
 	}
 
 	private static int getColorIndex() {

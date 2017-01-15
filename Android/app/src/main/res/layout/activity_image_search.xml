@@ -14,11 +14,11 @@
 
         <include layout="@layout/toolbar"/>
 
-        <!--<fragment
-            android:id="@+id/browseUsersFragment"
-            class="com.karcompany.views.fragments.BrowseUsersFragment"
+        <fragment
+            android:id="@+id/browseImagesFragment"
+            class="com.karcompany.imageexplorer.views.fragments.BrowseImagesFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>-->
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 </RelativeLayout>

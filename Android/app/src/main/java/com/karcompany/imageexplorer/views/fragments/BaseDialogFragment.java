@@ -3,11 +3,12 @@ package com.karcompany.imageexplorer.views.fragments;
 /**
  * Created by pvkarthik on 2017-01-12.
  *
- * BaseFragment from which other fragments extend to Simplify DI, view injections.
+ * BasedialogFragment from which other dialog fragments extend to Simplify DI, view injections.
  */
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
@@ -15,7 +16,7 @@ import com.karcompany.imageexplorer.di.HasComponent;
 
 import butterknife.ButterKnife;
 
-public class BaseFragment extends Fragment {
+public class BaseDialogFragment extends DialogFragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
