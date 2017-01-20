@@ -32,7 +32,6 @@ public class BrowseImagesPresenterImpl implements BrowseImagesPresenter, ApiRepo
 	@Inject
 	public BrowseImagesPresenterImpl(ApiRepo apiRepo) {
 		mApiRepo = apiRepo;
-		this.subscriptions = new CompositeSubscription();
 	}
 
 	@Override
