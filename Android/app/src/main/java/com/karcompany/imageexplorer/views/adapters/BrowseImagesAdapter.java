@@ -193,9 +193,13 @@ public class BrowseImagesAdapter extends RecyclerView.Adapter<ImageListItemViewH
 				int newSize = mImageIdList.size();
 				if (oldSize > 0) {
 					notifyItemRangeInserted(oldSize, newSize - oldSize);
+					if(newSize == mTotalListCount) {
+						notifyItemRemoved(mImageIdList.size());
+					}
 				} else {
 					notifyDataSetChanged();
 				}
+
 			}
 		}
 	}
