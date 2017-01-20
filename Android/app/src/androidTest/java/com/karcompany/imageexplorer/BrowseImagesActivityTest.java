@@ -39,15 +39,15 @@ public class BrowseImagesActivityTest {
 		onView(withId(R.id.action_search)).perform(click());
 		SystemClock.sleep(3000);
 		onView(isAssignableFrom(EditText.class)).perform(typeText("mobile"), pressKey(KeyEvent.KEYCODE_ENTER));
-		SystemClock.sleep(3000);
-		onView(allOf(withId(R.id.image_list), isDisplayed())).perform(
+		SystemClock.sleep(10000);
+		onView(withId(R.id.image_list)).perform(
 				RecyclerViewActions.actionOnItemAtPosition(2, click()));
 		SystemClock.sleep(3000);
 		onView(withId(R.id.dimissBar)).perform(click());
 		SystemClock.sleep(3000);
 		onView(isAssignableFrom(EditText.class)).perform(pressKey(KeyEvent.KEYCODE_BACK));
 		SystemClock.sleep(3000);
-		onView(allOf(withId(R.id.image_list), isDisplayed())).perform(
+		onView(withId(R.id.image_list)).perform(
 				RecyclerViewActions.actionOnItemAtPosition(5, click()));
 		SystemClock.sleep(3000);
 		onView(withId(R.id.dimissBar)).perform(click());
